@@ -29,7 +29,7 @@
   
   tasks:
     - name: Deploy OCA Partner from Github repository
-    become: yes
+      become: yes
       become_user: "{{ odoo_user }}"
       git: repo=https://github.com/OCA/partner-contact.git
            dest="/home/{{ odoo_user }}/odoo/partner-contact"
