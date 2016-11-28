@@ -1,0 +1,18 @@
+- name: Addons
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Deploy Horizon from Github repository
+      become: yes
+      become_user: "{{ odoo_user }}"
+      git: repo=https://github.com/be-cloud-be/horizon.git
+           dest="/home/{{ odoo_user }}/odoo/horizon"
+           version={{ odoo_version }}
+  
+    - name: Deploy OCA Partner from Github repository
+      become: yes
+      become_user: "{{ odoo_user }}"
+      git: repo=https://github.com/OCA/partner-contact.git
+           dest="/home/{{ odoo_user }}/odoo/partner-contact"
+           version={{ odoo_version }}
