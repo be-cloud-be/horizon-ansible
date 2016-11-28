@@ -5,7 +5,7 @@
     - odoo
   vars:
     - odoo_version: 10.0
-    - odoo_service: odoo
+    - odoo_service: odoo10
     - odoo_user: odoo10
     - odoo_config_admin_passwd: admingit
     - odoo_config_xmlrpc_port: 8079
@@ -17,7 +17,11 @@
         - "/home/{{ odoo_user }}/odoo/server/odoo/addons"
         - "/home/{{ odoo_user }}/odoo/server/addons"
         - "/home/{{ odoo_user }}/odoo/horizon"
-        
-- git: repo=https://github.com/be-cloud-be/horizon.git
-       dest="/home/{{ odoo_user }}/odoo/horizon"
-       version={{ odoo_version }}
+  
+  tasks:
+    - name: Deploy site files from Github repository
+      hosts: all
+      become: yes
+      git: repo=https://github.com/be-cloud-be/horizon.git
+           dest="/home/{{ odoo_user }}/odoo/horizon"
+           version={{ odoo_version }}
