@@ -3,7 +3,7 @@
   become: yes
   roles:
     - odoo
-vars:
+  vars:
     - odoo_version: 10.0
     - odoo_service: odoo
     - odoo_user: odoo
@@ -14,3 +14,7 @@ vars:
     - odoo_config_longpolling_port: 8072
     - odoo_config_db_user: odoo
     - odoo_user_sshkeys: /home/odoo/.ssh/id_rsa.pub
+    - odoo_config_addons_path:
+        - "/home/{{ odoo_user }}/odoo/server/odoo/addons"
+        - "/home/{{ odoo_user }}/odoo/server/addons"
+        - "/home/{{ odoo_user }}/odoo/horizon"
