@@ -20,8 +20,8 @@
   
   tasks:
     - name: Deploy site files from Github repository
-      hosts: all
       become: yes
+      become_user: {{ odoo_user }}
       git: repo=https://github.com/be-cloud-be/horizon.git
            dest="/home/{{ odoo_user }}/odoo/horizon"
            version={{ odoo_version }}
