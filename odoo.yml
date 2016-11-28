@@ -14,6 +14,6 @@
     - odoo_config_db_user: "{{ odoo_user }}"
     - odoo_user_sshkeys: "/home/{{ odoo_user }}/.ssh/id_rsa.pub"
     - odoo_config_addons_path:
+        - "/home/{{ odoo_user }}/odoo/server/odoo/addons"
         - "/home/{{ odoo_user }}/odoo/server/addons"
-        - "/home/{{ odoo_user }}/odoo/addons"
         - "/home/{{ odoo_user }}/odoo/horizon"
