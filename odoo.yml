@@ -5,19 +5,11 @@
     - odoo
   vars:
     - odoo_version: 9.0
-    - odoo_service: odoo9
-    - odoo_user: odoo9
-    - odoo_config_admin_passwd: admingit
-    - odoo_config_xmlrpc_port: 8069
-    - odoo_config_xmlrpcs_port: 8071
-    - odoo_config_longpolling_port: 8072
-    - odoo_config_db_user: "{{ odoo_user }}"
-    - odoo_user_sshkeys: "/home/{{ odoo_user }}/.ssh/id_rsa.pub"
+    - odoo_repo_url: https://github.com/be-cloud-be/horizon-addons.git
+    - odoo_repo_rev: {{odoo_version}}
+    - odoo_repo_dest: "/home/{{ odoo_user }}/odoo"
     - odoo_config_addons_path:
         - "/home/{{ odoo_user }}/odoo/server/odoo/addons"
         - "/home/{{ odoo_user }}/odoo/server/addons"
         - "/home/{{ odoo_user }}/odoo/horizon"
         - "/home/{{ odoo_user }}/odoo/partner-contact"
-  
-  tasks:
-    - include: tasks/odoo-addons.yml
