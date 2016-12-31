@@ -1,0 +1,2 @@
+[odooserver]
+crlg.be-cloud.be ansible_user=jerome_sonnet
