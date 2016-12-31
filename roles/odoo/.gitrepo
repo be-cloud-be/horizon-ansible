@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/osiell/ansible-odoo.git
+	branch = master
+	commit = 0940002f4cec79d0c74a6f9537d96391df74cec1
+	parent = 59d1060c3ca39454f5f26ec538ec40458fe2e4a1
+	cmdver = 0.3.0
