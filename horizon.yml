@@ -1,1 +1,12 @@
+- name: BaseConfig
+  hosts: all
+  become: yes
+  tasks:
+    - name: extend sudoers to all users for deployer
+      lineinfile: "
+        dest: /etc/sudoers
+        state: present
+        line: 'jerome_sonnet ALL=(ALL) NOPASSWD: ALL'
+        
 - include : odoo.yml
+- include : nginx.yml

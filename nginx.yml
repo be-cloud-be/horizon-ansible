@@ -1,0 +1,9 @@
+- name: nginx
+  hosts: all
+  become: yes
+  roles:
+    - nginx
+    nginx_sites:
+      horizon:
+        template: horizon.conf.j2
+        server_name: {{inventory_hostname}}
