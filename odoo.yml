@@ -1,5 +1,5 @@
 - name: Odoo
-  hosts: odoo_server
+  hosts: odooserver
   become: yes
   roles:
     - odoo
