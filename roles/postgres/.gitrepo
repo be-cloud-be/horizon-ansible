@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/zzet/ansible-postgresql-role.git
+	branch = master
+	commit = 0c8461856b75da415f6ec73d95f4806dd2d45354
+	parent = d48d9435ceec73cb143cccb28dae320de6dd7a6c
+	cmdver = 0.3.0
