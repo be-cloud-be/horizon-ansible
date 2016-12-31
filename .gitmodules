@@ -1,4 +1,0 @@
-[submodule "roles/odoo"]
-	path = roles/odoo
-	url = https://github.com/osiell/ansible-odoo.git
-	branch = master
