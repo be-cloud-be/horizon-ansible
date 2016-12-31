@@ -9,7 +9,7 @@
     - odoo_repo_rev: "{{odoo_version}}"
     - odoo_repo_dest: "/home/{{ odoo_user }}/odoo"
     - odoo_config_addons_path:
-        - "/home/{{ odoo_user }}/odoo/server/odoo/addons"
+        - "/home/{{ odoo_user }}/odoo/server/openerp/addons"
         - "/home/{{ odoo_user }}/odoo/server/addons"
         - "/home/{{ odoo_user }}/odoo/horizon"
         - "/home/{{ odoo_user }}/odoo/partner-contact"

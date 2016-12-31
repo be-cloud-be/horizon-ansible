@@ -1,0 +1,7 @@
+- name: Postgres
+  hosts: dbserver
+  become: yes
+  roles:
+    - postgres
+  vars:
+    - pg_version: 9.4
