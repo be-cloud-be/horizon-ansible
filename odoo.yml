@@ -6,7 +6,7 @@
   vars:
     - odoo_version: 9.0
     - odoo_repo_url: https://github.com/be-cloud-be/horizon-addons.git
-    - odoo_repo_rev: {{odoo_version}}
+    - odoo_repo_rev: "{{odoo_version}}"
     - odoo_repo_dest: "/home/{{ odoo_user }}/odoo"
     - odoo_config_addons_path:
         - "/home/{{ odoo_user }}/odoo/server/odoo/addons"
