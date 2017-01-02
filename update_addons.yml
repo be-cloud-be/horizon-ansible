@@ -1,0 +1,12 @@
+- name: Update addons directory
+  hosts: all
+  become: yes
+  handlers:
+    - include: roles/odoo/handlers/main.yml
+  tasks:
+    - name: checkout git repository
+      git: repo=https://github.com/be-cloud-be/horizon-addons.git
+           dest="/home/odoo/odoo"
+           version="9.0"
+           force=yes
+      notify: Restart Odoo System V

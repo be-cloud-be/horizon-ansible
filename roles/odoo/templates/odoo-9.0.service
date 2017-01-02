@@ -1,0 +1,16 @@
+[Unit]
+Description=ODOO Application Server
+Requires=postgresql.service
+After=postgresql.service
+[Install]
+Alias={{ odoo_service }}.service
+[Service]
+Type=simple
+PermissionsStartOnly=true
+User={{ odoo_user }}
+Group={{ odoo_user }}
+PIDFile=/var/run/{{ odoo_service }}.pid
+ExecStart={{ odoo_rootdir }}/odoo.py --config {{ odoo_config_file }} --logfile {{ odoo_logdir }}/{{ odoo_service }}.log {{ odoo_config_server_wide_modules not in [False, 'None', ''] and ' --load=%s' % odoo_config_server_wide_modules or '' }}
+ExecStop=/bin/kill `cat /var/run/{{ odoo_service }}.pid`
+[Install]
+WantedBy=multi-user.target
