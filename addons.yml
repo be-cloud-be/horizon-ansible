@@ -1,0 +1,29 @@
+- name: Clone Addons Repositories
+  hosts: odooserver
+  become: yes
+  tasks:
+    - name: clone Horizon repository
+      git: repo=https://github.com/be-cloud-be/horizon.git
+           dest="/home/{{ odoo_user }}/addons/horizon"
+           version="{{odoo_version}}"
+           force=yes
+    - name: clone OCA partner-contact repository
+      git: repo=https://github.com/OCA/partner-contact.git
+           dest="/home/{{ odoo_user }}/addons/partner-contact"
+           version="{{odoo_version}}"
+           force=yes
+    - name: clone OCA server-tools repository
+      git: repo=https://github.com/OCA/server-tools.git
+           dest="/home/{{ odoo_user }}/addons/server-tools"
+           version="{{odoo_version}}"
+           force=yes
+    - name: clone OCA website repository
+      git: repo=https://github.com/be-cloud-be/website.git
+           dest="/home/{{ odoo_user }}/addons/website"
+           version="{{odoo_version}}"
+           force=yes
+    - name: clone OCA web repository
+      git: repo=https://github.com/OCA/web.git
+           dest="/home/{{ odoo_user }}/addons/web"
+           version="{{odoo_version}}"
+           force=yes
