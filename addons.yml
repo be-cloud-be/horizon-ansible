@@ -27,3 +27,8 @@
            dest="/home/{{ odoo_user }}/addons/web"
            version="{{odoo_version}}"
            force=yes
+    - name: clone V9 Backend Theme
+      git: repo=https://github.com/Openworx/odoo9_theme.git
+           dest="/home/{{ odoo_user }}/addons/odoo9_theme"
+           version="{{odoo_version}}"
+           force=yes

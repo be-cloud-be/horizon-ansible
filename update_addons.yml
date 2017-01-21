@@ -1,6 +1,7 @@
 - name: Update addons directory
   hosts: all
   become: yes
+  become_user: "{{ odoo_user }}"
   handlers:
     - include: roles/odoo/handlers/main.yml
   tasks:

@@ -17,3 +17,4 @@
         - "/home/{{ odoo_user }}/addons/server-tools"
         - "/home/{{ odoo_user }}/addons/website"
         - "/home/{{ odoo_user }}/addons/web"
+        - "/home/{{ odoo_user }}/addons/odoo9_theme"

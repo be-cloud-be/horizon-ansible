@@ -1,6 +1,5 @@
 - name: BaseConfig
   hosts: all
-  become: yes
   tasks:
     - name: extend sudoers to all users for deployer
       lineinfile:
