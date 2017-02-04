@@ -1,12 +1,18 @@
 - name: Clone Addons Repositories
   hosts: odooserver
   become: yes
+  become_user: "{{ odoo_user }}"
   tasks:
     - name: clone Horizon repository
       git: repo=https://github.com/be-cloud-be/horizon.git
            dest="/home/{{ odoo_user }}/addons/horizon"
            version="{{odoo_version}}"
            force=yes
+    - name : clone beCloud repository
+      git: repo=https://github.com/be-cloud-be/odoo-modules.git
+           dest="/home/{{ odoo_user }}/addons/becloud"
+           version="{{odoo_version}}"
+      
     - name: clone OCA partner-contact repository
       git: repo=https://github.com/OCA/partner-contact.git
            dest="/home/{{ odoo_user }}/addons/partner-contact"
@@ -28,7 +34,7 @@
            version="{{odoo_version}}"
            force=yes
     - name: clone V9 Backend Theme
-      git: repo=https://github.com/Openworx/odoo9_theme.git
+      git: repo=https://github.com/be-cloud-be/odoo9_theme.git
            dest="/home/{{ odoo_user }}/addons/odoo9_theme"
            version="{{odoo_version}}"
            force=yes

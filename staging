@@ -1,7 +1,7 @@
 [odooserver]
-crlg.be-cloud.be ansible_user=jerome_sonnet
+crlg.be-cloud.be ansible_user=jerome.sonnet
 [odooserver:vars]
 odoo_version="9.0"
 odoo_user="odoo"
 [dbserver]
-crlg.be-cloud.be ansible_user=jerome_sonnet
+crlg.be-cloud.be ansible_user=jerome.sonnet

@@ -35,6 +35,7 @@ odoo_debian_packages:
     - python-six
     - python-suds
     - python-tz
+    - python-unicodecsv
     - python-vatnumber
     - python-vobject
     - python-werkzeug

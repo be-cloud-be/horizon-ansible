@@ -1,6 +1,7 @@
 - name: Odoo
   hosts: odooserver
   become: yes
+  become_user: odoo
   roles:
     - odoo
   vars:
@@ -18,3 +19,4 @@
         - "/home/{{ odoo_user }}/addons/website"
         - "/home/{{ odoo_user }}/addons/web"
         - "/home/{{ odoo_user }}/addons/odoo9_theme"
+        - "/home/{{ odoo_user }}/addons/becloud"
