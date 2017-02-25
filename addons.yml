@@ -1,3 +1,11 @@
+- name: Install deps
+  hosts: odooserver
+  become: yes
+  tasks:
+    - name: install deps
+      apt:  pkg="python-unicodecsv"
+            state=installed
+
 - name: Clone Addons Repositories
   hosts: odooserver
   become: yes
@@ -38,3 +46,4 @@
            dest="/home/{{ odoo_user }}/addons/odoo9_theme"
            version="{{odoo_version}}"
            force=yes
+      notify: Restart Odoo

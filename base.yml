@@ -1,8 +1,15 @@
 - name: BaseConfig
   hosts: all
+  become: true
   tasks:
     - name: extend sudoers to all users for deployer
       lineinfile:
-        dest: /etc/sudoers
+        create: yes
+        dest: /etc/sudoers.d/odoo
         state: present
-        line: 'jerome_sonnet ALL=(ALL) NOPASSWD: ALL'
+        line: '{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL'
+    - name: extend sudoers to all users for deployer
+      lineinfile:
+        dest: /etc/sudoers.d/odoo
+        state: present
+        line: '{{ odoo_user }} ALL = NOPASSWD: /usr/sbin/service nginx reload'
