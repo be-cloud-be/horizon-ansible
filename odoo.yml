@@ -6,22 +6,14 @@
   vars:
     - odoo_config_admin_passwd: "horizon-to-change"
     - odoo_repo_url: https://github.com/be-cloud-be/odoo.git
-    #- odoo_repo_url: https://github.com/odoo/odoo.git
     - odoo_workdir: "/home/{{ odoo_user }}/odoo"
     - odoo_rootdir: "/home/{{ odoo_user }}/odoo"
     - odoo_repo_rev: "{{odoo_version}}"
     - odoo_repo_update: yes
+    - odoo_config_unaccent: True
     - odoo_config_addons_path:
         - "/home/{{ odoo_user }}/odoo/openerp/addons"
         - "/home/{{ odoo_user }}/odoo/addons"
-        #- "/home/{{ odoo_user }}/addons/horizon"
-        #- "/home/{{ odoo_user }}/addons/partner-contact"
-        #- "/home/{{ odoo_user }}/addons/server-tools"
-        #- "/home/{{ odoo_user }}/addons/website"
-        #- "/home/{{ odoo_user }}/addons/web"
-        #- "/home/{{ odoo_user }}/addons/odoo9_theme"
-        #- "/home/{{ odoo_user }}/addons/becloud"
     - odoo_config_custom: {
       workers : "4",
-      unaccent : True,
     }
