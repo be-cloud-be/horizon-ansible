@@ -31,9 +31,14 @@
   command: "{{ odoo_buildout_bin_path }} -c {{ odoo_buildout_config_path }}"
   changed_when: False
 
-- name: Generate Odoo init script
-  template: src=odoo-buildout.init dest=/etc/init.d/{{ odoo_service }}
-        owner=root group=root mode=0755
-        force=yes
-        backup=yes
-  notify: Restart Odoo
+#- name: Generate Odoo init script
+#  template: src=odoo-{{ odoo_version }}.init dest=/etc/init.d/{{ odoo_service }}
+#        owner=root group=root mode=0755
+#        force={{ odoo_force_config and 'yes' or 'no' }}
+#        backup=yes
+#  notify: Restart Odoo
+  
+- name: Install Odoo Service
+  sudo: true
+  template: src=odoo-{{ odoo_version }}.service dest=/lib/systemd/system/{{ odoo_service }}.service owner=root mode=644 backup=yes
+  notify: Restart Odoo System V
