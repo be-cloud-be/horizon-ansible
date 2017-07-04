@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/jdauphant/ansible-role-nginx.git
 	branch = master
-	commit = 7faf5f9f480e43064318acb36d0be012b75c7a2e
-	parent = 4d73419b4bef0784bfa9601176f224c725c90c11
-	cmdver = 0.3.0
+	commit = 323ad05f147b7643e9f1651204fdadd32c3842fd
+	parent = 36f94ec534034a9e83c8ac3960342f2f13062626
+	cmdver = 0.3.1
