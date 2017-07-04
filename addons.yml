@@ -11,39 +11,8 @@
   become: yes
   become_user: "{{ odoo_user }}"
   tasks:
-    - name: clone Horizon repository
-      git: repo=https://github.com/be-cloud-be/horizon.git
-           dest="/home/{{ odoo_user }}/addons/horizon"
-           version="{{odoo_version}}"
-           force=yes
     - name : clone beCloud repository
       git: repo=https://github.com/be-cloud-be/odoo-modules.git
            dest="/home/{{ odoo_user }}/addons/becloud"
            version="{{odoo_version}}"
-      
-    - name: clone OCA partner-contact repository
-      git: repo=https://github.com/OCA/partner-contact.git
-           dest="/home/{{ odoo_user }}/addons/partner-contact"
-           version="{{odoo_version}}"
-           force=yes
-    - name: clone OCA server-tools repository
-      git: repo=https://github.com/OCA/server-tools.git
-           dest="/home/{{ odoo_user }}/addons/server-tools"
-           version="{{odoo_version}}"
-           force=yes
-    - name: clone OCA website repository
-      git: repo=https://github.com/be-cloud-be/website.git
-           dest="/home/{{ odoo_user }}/addons/website"
-           version="{{odoo_version}}"
-           force=yes
-    - name: clone OCA web repository
-      git: repo=https://github.com/OCA/web.git
-           dest="/home/{{ odoo_user }}/addons/web"
-           version="{{odoo_version}}"
-           force=yes
-    - name: clone V9 Backend Theme
-      git: repo=https://github.com/be-cloud-be/odoo9_theme.git
-           dest="/home/{{ odoo_user }}/addons/odoo9_theme"
-           version="{{odoo_version}}"
-           force=yes
       notify: Restart Odoo

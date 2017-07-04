@@ -6,8 +6,8 @@
     - include: roles/odoo/handlers/main.yml
   tasks:
     - name: checkout git repository
-      git: repo=https://github.com/be-cloud-be/horizon-addons.git
-           dest="/home/odoo/odoo"
-           version="9.0"
+      git: repo=https://github.com/be-cloud-be/odoo-modules
+           dest="/home/{{ odoo_user }}/addons"
+           version="10.0"
            force=yes
       notify: Restart Odoo System V
