@@ -11,8 +11,22 @@
   become: yes
   become_user: "{{ odoo_user }}"
   tasks:
-    - name : clone beCloud repository
-      git: repo=https://github.com/be-cloud-be/odoo-modules.git
-           dest="/home/{{ odoo_user }}/addons/becloud"
-           version="{{odoo_version}}"
-      notify: Restart Odoo
+    #- name : clone beCloud repository
+    #  git: repo=https://github.com/be-cloud-be/odoo-modules.git
+    #       dest="/home/{{ odoo_user }}/addons/becloud"
+    #       version="imply"
+    #  notify: Restart Odoo
+    #- name : clone Odoo Enterprise repository
+    #  git: repo=https://{{ githubuser | urlencode }}:{{ githubpassword }}@github.com/odoo/enterprise.git
+    #       dest="/home/{{ odoo_user }}/addons/enterprise"
+    #       version="saas-14"
+    # notify: Restart Odoo
+    - name : clone OCA web
+      git: repo=https://github.com/OCA/web.git
+           dest="/home/{{ odoo_user }}/addons/web"
+           version="10.0"
+      #notify: Restart Odoo
+    - name : clone OCA server-tools
+      git: repo=https://github.com/OCA/server-tools.git
+           dest="/home/{{ odoo_user }}/addons/server-tools"
+           version="10.0"

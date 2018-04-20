@@ -4,19 +4,22 @@
   roles:
     - odoo
   vars:
-    - odoo_config_admin_passwd: "seatibiza2015" # TODO change this !!!
-    - odoo_repo_url: https://github.com/be-cloud-be/odoo.git
+    - odoo_repo_url: https://github.com/odoo/odoo.git
     - odoo_workdir: "/home/{{ odoo_user }}/odoo"
     - odoo_rootdir: "/home/{{ odoo_user }}/odoo"
-    - odoo_repo_rev: "{{odoo_version}}"
+    - odoo_repo_rev: "saas-14"
     - odoo_repo_update: yes
     - odoo_config_unaccent: True
-    - odoo_config_xmlrpc_port : 8079
+    - odoo_config_xmlrpc_port : 8089
     - odoo_config_longpolling_port: 8092
+    - odoo_config_limit_memory_hard: 805306368
+    - odoo_service : "odoo-imply"
     - odoo_config_addons_path:
         - "/home/{{ odoo_user }}/odoo/odoo/addons"
         - "/home/{{ odoo_user }}/odoo/addons"
         - "/home/{{ odoo_user }}/addons/becloud"
+        - "/home/{{ odoo_user }}/addons/enterprise"
+        - "/home/{{ odoo_user }}/addons/web"
     - odoo_config_custom: {
       workers : "4",
     }

@@ -1,7 +1,7 @@
 [odooserver]
-imply-red.imply.lu ansible_user=js
+odoo.socomaconstruction.com ansible_user=deployer
 [odooserver:vars]
-odoo_version="10.0"
-odoo_user="odoo-imply"
+odoo_version="11.0"
+odoo_user="odoo-socoma"
 [dbserver]
-imply-red.imply.lu ansible_user=js
+odoo.socomaconstruction.com ansible_user=deployer
