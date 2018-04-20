@@ -71,8 +71,7 @@ nginx_events_params:
   - worker_connections {% if nginx_max_clients is defined %}{{nginx_max_clients}}{% else %}512{% endif %}
 
 nginx_http_params: "{{ nginx_http_default_params }}"
-<<<<<<<<< saved version
-=======
+
 nginx_http_params:
   - sendfile "on"
   - tcp_nopush "on"
@@ -83,16 +82,10 @@ nginx_http_params:
   - server_tokens off
   - types_hash_max_size 2048
   - client_max_body_size 500M
-<<<<<<< HEAD
-=======
   - proxy_connect_timeout 600
   - proxy_send_timeout 600
   - proxy_read_timeout 600
   - send_timeout 600
->>>>>>> first
-=========
-
->>>>>>>>> local version
 
 nginx_stream_params: []
 

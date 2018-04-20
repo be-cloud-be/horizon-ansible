@@ -1,7 +1,7 @@
 [odooserver]
-odoo.socomaconstruction.com ansible_user=deployer
+51.38.36.238 ansible_user=deployer
 [odooserver:vars]
 odoo_version="11.0"
 odoo_user="odoo-socoma"
 [dbserver]
-odoo.socomaconstruction.com ansible_user=deployer
+51.38.36.238 ansible_user=deployer

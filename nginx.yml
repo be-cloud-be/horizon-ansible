@@ -4,6 +4,6 @@
   roles:
     - role: nginx
       nginx_sites:
-        horizon:
-          template : horizon.conf.j2
+        main:
+          template : main.conf.j2
           server_name : "{{inventory_hostname}}"

@@ -7,19 +7,20 @@
     - odoo_repo_url: https://github.com/odoo/odoo.git
     - odoo_workdir: "/home/{{ odoo_user }}/odoo"
     - odoo_rootdir: "/home/{{ odoo_user }}/odoo"
-    - odoo_repo_rev: "saas-14"
+    - odoo_repo_rev: "11.0"
     - odoo_repo_update: yes
     - odoo_config_unaccent: True
     - odoo_config_xmlrpc_port : 8089
     - odoo_config_longpolling_port: 8092
     - odoo_config_limit_memory_hard: 805306368
-    - odoo_service : "odoo-imply"
+    - odoo_service : "odoo-socoma"
     - odoo_config_addons_path:
         - "/home/{{ odoo_user }}/odoo/odoo/addons"
         - "/home/{{ odoo_user }}/odoo/addons"
         - "/home/{{ odoo_user }}/addons/becloud"
         - "/home/{{ odoo_user }}/addons/enterprise"
         - "/home/{{ odoo_user }}/addons/web"
+        - "/home/{{ odoo_user }}/addons/server-tools"
     - odoo_config_custom: {
       workers : "4",
     }
