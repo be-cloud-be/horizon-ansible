@@ -12,7 +12,7 @@
     - odoo_config_unaccent: True
     - odoo_config_xmlrpc_port : 8089
     - odoo_config_longpolling_port: 8092
-    - odoo_config_limit_memory_hard: 805306368
+    - odoo_config_limit_memory_hard: 2684354560
     - odoo_service : "odoo-socoma"
     - odoo_config_addons_path:
         - "/home/{{ odoo_user }}/odoo/odoo/addons"
