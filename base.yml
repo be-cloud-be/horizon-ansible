@@ -8,7 +8,7 @@
         dest: /etc/sudoers.d/odoo
         state: present
         line: '{{ ansible_user }} ALL=(ALL) NOPASSWD: ALL'
-    - name: extend sudoers to all users for deployer
+    - name: extend sudoers to allow odoo_user to restart nginx
       lineinfile:
         dest: /etc/sudoers.d/odoo
         state: present

@@ -5,6 +5,9 @@ upstream odoochat{
 upstream odoo {
   server 127.0.0.1:8069 weight=10;
 }
+upstream angular {
+  server 127.0.0.1:4200 weight=10;
+}
 server {
     listen              80;
     listen              [::]:80;
@@ -13,23 +16,62 @@ server {
     access_log  /var/log/nginx/oddo.access.log;
     error_log   /var/log/nginx/oddo.error.log;
 
-    proxy_buffers 16 64k;
-    proxy_buffer_size 128k;
+    if ($scheme = "http") {
+        set $redirect_https 1;
+    }
+    if ($request_uri ~ ^/.well-known/acme-challenge/) {
+        set $redirect_https 0;
+    }
+    if ($redirect_https) {
+        rewrite ^   https://$server_name$request_uri? permanent;
+    }
+    location ~ /\.well-known/acme-challenge {
+        proxy_pass  http://odoo;
+    }
+}
+
+server {
+    listen              443;
+    listen              [::]:443;
+    server_name         {{inventory_hostname}};
 
     proxy_set_header    X-Forwarded-Host $host;
     proxy_set_header    Host            $host;
     proxy_set_header    X-Real-IP       $remote_addr;
     proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_buffers       16  64k;
+    proxy_buffer_size   128k;
+
+    ssl on;
+
+    ssl_certificate /home/odoo/.local/share/Odoo/letsencrypt/{{inventory_hostname}}.crt;
+    ssl_certificate_key /home/odoo/.local/share/Odoo/letsencrypt/{{inventory_hostname}}.key;
+
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    ssl_trusted_certificate /home/odoo/.local/share/Odoo/letsencrypt/fullchain.pem;
+
+    ssl_session_timeout 5m;
 
     location / {
         proxy_pass  http://odoo;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         proxy_redirect off;
+
+        proxy_set_header    X-Forwarded-Host    $host;
+        proxy_set_header    Host                $host;
+        proxy_set_header    X-Real-IP           $remote_addr;
+        proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+        proxy_set_header    X-Forwarded-Proto   https;
     }
 
     location /longpolling {
         # enables Odoo’s live chat feature
         proxy_pass http://odoochat;
+    }
+    
+    location /angular {
+        proxy_pass http://angular;
     }
     
     location ~* /web/static/ {

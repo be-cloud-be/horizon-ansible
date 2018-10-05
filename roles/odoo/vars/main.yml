@@ -9,9 +9,12 @@ odoo_required_tools:
     - mercurial
     - python-pip
     - python-psycopg2
+    - openssl
 
 odoo_pypi_packages:
     - psycogreen
+    - acme-tiny
+    - IPy
 
 odoo_buildout_venv_cmd: "virtualenv --no-setuptools {{ odoo_buildout_venv_path }}"
 

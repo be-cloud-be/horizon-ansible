@@ -2,8 +2,11 @@
   hosts: odooserver
   become: yes
   tasks:
-    - name: install deps
+    - name: install unicodecsv
       apt:  pkg="python-unicodecsv"
+            state=installed
+    - name: install dbf
+      apt:  pkg="python-dbf"
             state=installed
 
 - name: Clone Addons Repositories
@@ -11,6 +14,8 @@
   become: yes
   become_user: "{{ odoo_user }}"
   tasks:
+#    - name: Install libselinux-python
+#      yum: name=libselinux-python
     - name: clone Horizon repository
       git: repo=https://github.com/be-cloud-be/horizon.git
            dest="/home/{{ odoo_user }}/addons/horizon"
@@ -36,6 +41,11 @@
            dest="/home/{{ odoo_user }}/addons/website"
            version="{{odoo_version}}"
            force=yes
+    - name: clone OCA knowledge repository
+      git: repo=https://github.com/be-cloud-be/knowledge.git
+           dest="/home/{{ odoo_user }}/addons/knowledge"
+           version="{{odoo_version}}"
+           force=yes
     - name: clone OCA web repository
       git: repo=https://github.com/OCA/web.git
            dest="/home/{{ odoo_user }}/addons/web"
@@ -46,4 +56,3 @@
            dest="/home/{{ odoo_user }}/addons/odoo9_theme"
            version="{{odoo_version}}"
            force=yes
-      notify: Restart Odoo
