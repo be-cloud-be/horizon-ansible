@@ -25,7 +25,7 @@ server {
     if ($redirect_https) {
         rewrite ^   https://$server_name$request_uri? permanent;
     }
-    location ~ /\.well-known/acme-challenge {
+    location /.well-known {
         proxy_pass  http://odoo;
     }
 }
